@@ -69,6 +69,10 @@ import coil.compose.rememberAsyncImagePainter
 import com.google.samples.apps.nowinandroid.core.designsystem.R.drawable
 import com.google.samples.apps.nowinandroid.core.designsystem.component.NiaIconToggleButton
 import com.google.samples.apps.nowinandroid.core.designsystem.component.NiaTopicTag
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.METADATA_TEXT
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.NEWS_IMAGE
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.NEWS_TEXT
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.ROW_TEST_TAG
 import com.google.samples.apps.nowinandroid.core.designsystem.icon.NiaIcons
 import com.google.samples.apps.nowinandroid.core.designsystem.theme.NiaTheme
 import com.google.samples.apps.nowinandroid.core.model.data.FollowableTopic
@@ -207,6 +211,7 @@ fun NewsResourceHeaderImage(
 
         Image(
             modifier = Modifier
+                .testTag(NEWS_IMAGE)
                 .fillMaxWidth()
                 .height(180.dp),
             contentScale = ContentScale.Crop,
@@ -293,6 +298,7 @@ fun NewsResourceMetaData(
             formattedDate
         },
         style = MaterialTheme.typography.labelSmall,
+        modifier = Modifier.testTag(METADATA_TEXT),
     )
 }
 
@@ -300,7 +306,11 @@ fun NewsResourceMetaData(
 fun NewsResourceShortDescription(
     newsResourceShortDescription: String,
 ) {
-    Text(newsResourceShortDescription, style = MaterialTheme.typography.bodyLarge)
+    Text(
+        newsResourceShortDescription,
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.testTag(NEWS_TEXT),
+    )
 }
 
 @Composable
@@ -311,7 +321,9 @@ fun NewsResourceTopics(
 ) {
     Row(
         // causes narrow chips
-        modifier = modifier.horizontalScroll(rememberScrollState()),
+        modifier = modifier
+            .horizontalScroll(rememberScrollState())
+            .testTag(ROW_TEST_TAG),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         for (followableTopic in topics) {

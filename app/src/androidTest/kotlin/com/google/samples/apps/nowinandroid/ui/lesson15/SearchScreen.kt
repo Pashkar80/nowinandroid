@@ -16,24 +16,28 @@
 
 package com.google.samples.apps.nowinandroid.ui.lesson15
 
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.BACK_BUTTON
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.RECENT_SEARCHES
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.SEARCH_ICON
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.SEARCH_TEXT_FIELD
 import io.github.kakaocup.compose.node.element.ComposeScreen
 import io.github.kakaocup.compose.node.element.KNode
 
 object SearchScreen : ComposeScreen<SearchScreen>() {
 
     val searchTextField = child<KNode> {
-        hasTestTag("searchTextField")
+        hasTestTag(SEARCH_TEXT_FIELD)
     }
 
     val searchTextIcon = child<KNode> {
-        hasTestTag("searchIcon")
+        hasTestTag(SEARCH_ICON)
     }
 
     val backButton = child<KNode> {
-        hasTestTag("backButton")
+        hasTestTag(BACK_BUTTON)
     }
 
     val recentSearches = child<KNode> {
-        hasTestTag("recentSearches")
+        hasTestTag(RECENT_SEARCHES)
     }
 }

@@ -33,6 +33,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.SEARCH_BUTTON
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.SETTINGS_BUTTON
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags.TOOLBAR_TITLE
 import com.google.samples.apps.nowinandroid.core.designsystem.icon.NiaIcons
 import com.google.samples.apps.nowinandroid.core.designsystem.theme.NiaTheme
 
@@ -53,11 +56,11 @@ fun NiaTopAppBar(
         title = {
             Text(
                 text = stringResource(id = titleRes),
-                modifier = Modifier.testTag("toolbarTitle"),
+                modifier = Modifier.testTag(TOOLBAR_TITLE),
             )
         },
         navigationIcon = {
-            IconButton(onClick = onNavigationClick, modifier = Modifier.testTag("searchButton")) {
+            IconButton(onClick = onNavigationClick, modifier = Modifier.testTag(SEARCH_BUTTON)) {
                 Icon(
                     imageVector = navigationIcon,
                     contentDescription = navigationIconContentDescription,
@@ -66,7 +69,7 @@ fun NiaTopAppBar(
             }
         },
         actions = {
-            IconButton(onClick = onActionClick, modifier = Modifier.testTag("settingsButton")) {
+            IconButton(onClick = onActionClick, modifier = Modifier.testTag(SETTINGS_BUTTON)) {
                 Icon(
                     imageVector = actionIcon,
                     contentDescription = actionIconContentDescription,
